@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "stripe.api.public.key",
+    "type": "java.lang.String",
+    "description": "A description for 'stripe.api.public.key'"
+  },
+  {
+    "name": "app.security.jwt-secret",
+    "type": "java.lang.String",
+    "description": "JWT secret key for token signing."
+  },
+  {
+    "name": "stripe.api.public.key",
+    "type": "java.lang.String",
+    "description": "Stripe public API key."
+  },
+  {
+    "name": "stripe.api.secret.key",
+    "type": "java.lang.String",
+    "description": "Stripe secret API key."
+  },
+  {
+    "name": "spring.web.cors.allowed-origins",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.web.cors.allowed-origins'"
+  },
+  {
+    "name": "spring.web.cors.allowed-headers",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.web.cors.allowed-headers'"
+  },
+  {
+    "name": "spring.web.cors.allowed-methods",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.web.cors.allowed-methods'"
+  }
+]}
