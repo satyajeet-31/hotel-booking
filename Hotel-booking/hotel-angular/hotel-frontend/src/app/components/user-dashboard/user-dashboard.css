@@ -1,0 +1,72 @@
+.table th {
+  border-top: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6c757d;
+}
+
+.table td {
+  vertical-align: middle;
+  padding: 1rem 0.75rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.04);
+}
+
+.card {
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+}
+
+.card-header {
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* Status badge colors */
+.bg-warning {
+  background-color: #f6c23e !important;
+}
+
+.bg-success {
+  background-color: #1cc88a !important;
+}
+
+.bg-secondary {
+  background-color: #858796 !important;
+}
+
+.bg-info {
+  background-color: #36b9cc !important;
+}
+
+.bg-primary {
+  background-color: #4e73df !important;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .btn-sm {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+}
