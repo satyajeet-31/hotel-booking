@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">{{ title }}</a>
+    
+    <div class="navbar-nav ms-auto">
+      <!-- Show Admin Dashboard only for admins -->
+      <a class="nav-link" routerLink="/admin/dashboard" *ngIf="authService.isLoggedIn() && authService.isAdmin()">
+        Admin Dashboard
+      </a>
+      
+      <!-- Show Rooms and My Bookings only for regular users -->
+      <a class="nav-link" routerLink="/rooms" *ngIf="authService.isLoggedIn() && !authService.isAdmin()">
+        Rooms
+      </a>
+      <a class="nav-link" routerLink="/my-bookings" *ngIf="authService.isLoggedIn() && !authService.isAdmin()">
+        My Bookings
+      </a>
+      
+      <!-- Show login/signup when not logged in -->
+      <a class="nav-link" routerLink="/login" *ngIf="!authService.isLoggedIn()">Login</a>
+      <a class="nav-link" routerLink="/signup" *ngIf="!authService.isLoggedIn()">Sign Up</a>
+      
+      <!-- Logout -->
+      <a class="nav-link" href="#" *ngIf="authService.isLoggedIn()" 
+         (click)="authService.logout(); $event.preventDefault()">
+        Logout ({{ authService.getCurrentUser()?.username }})
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>

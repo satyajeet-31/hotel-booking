@@ -1,0 +1,68 @@
+<div class="container">
+  <h2>Hotel Rooms</h2>
+  
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="text-center my-4">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading rooms...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage && !isLoading" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Search Form -->
+  <div class="card mb-4" *ngIf="!isLoading">
+    <div class="card-body">
+      <h5 class="card-title">Check Room Availability</h5>
+      <div class="row">
+        <div class="col-md-5">
+          <label class="form-label">Arrival Date</label>
+          <input type="date" class="form-control" [(ngModel)]="arrivalDate">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Departure Date</label>
+          <input type="date" class="form-control" [(ngModel)]="departureDate">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+          <button class="btn btn-primary w-100" 
+                  (click)="searchAvailableRooms()"
+                  [disabled]="!arrivalDate || !departureDate">
+            Search
+          </button>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button *ngIf="showAvailable" class="btn btn-outline-secondary btn-sm" (click)="showAllRooms()">
+          Show All Rooms
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rooms List -->
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-4 mb-3" *ngFor="let room of (showAvailable ? availableRooms : rooms)">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ room.roomType }} Room</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Room {{ room.roomNumber }}</h6>
+          <p class="card-text">${{ room.pricePerNight }} per night</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-success w-100" [routerLink]="['/book-room', room.id]">
+            Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(showAvailable ? availableRooms : rooms).length === 0 && !isLoading" class="text-center">
+    <p>No rooms available</p>
+    <p class="text-muted" *ngIf="showAvailable">Try different dates or check all rooms</p>
+  </div>
+</div>
